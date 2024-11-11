@@ -1,4 +1,7 @@
-export default class CommunicationController {
+
+// CommunicationController è una classe che si occupa di gestire le chiamate API al server.
+ class CommunicationController {
+
     static BASE_URL = "https://develop.ewlab.di.unimi.it/mc/exercises/"; // URL base per le chiamate API
     static sid = 123; // session id
 
@@ -7,7 +10,7 @@ export default class CommunicationController {
 
         const queryParamsFormatted = new URLSearchParams(queryParams).toString();
 
-        const url = `${this.BASE_URL}${endpoint}?${queryParamsFormatted}`;
+        const url = `${CommunicationController.BASE_URL}${endpoint}?${queryParamsFormatted}`;
         
         console.log(`sending ${verb} request to: ${url}`);
 
@@ -45,7 +48,7 @@ export default class CommunicationController {
 static async getOrder(oid ){
 
     let endpoint = "order/" + oid ;
-    let queryParams = {sid : this.sid};
+    let queryParams = {sid : CommunicationController.sid};
 
     console.log("getOrder called with endpoint :", endpoint, " and queryParams: ", queryParams);
 
@@ -53,3 +56,5 @@ static async getOrder(oid ){
 }
 
 }
+
+export default CommunicationController;
