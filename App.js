@@ -7,6 +7,7 @@ const [delivertext, setDelivertext] = useState('loading...');
 
 useEffect(() => {
   console.log('component loaded for the first time ');
+  setDelivertext('data loaded');
 }, []); // la dipendenza vuota [] assicura che il codice venga eseguito solo una volta
 
 
