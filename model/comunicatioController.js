@@ -1,5 +1,5 @@
 export default class CommunicationController {
-    static BASE_URL = 'https://develop.ewlab.di.unimi.it/mc/exercises/'; // URL base per le chiamate API
+    static BASE_URL = "https://develop.ewlab.di.unimi.it/mc/exercises/"; // URL base per le chiamate API
     static sid = 123; // session id
 
     static async genericRequest(endpoint, verb, queryParams , bodyParams ) {
@@ -42,6 +42,14 @@ export default class CommunicationController {
         return await this.genericRequest(endpoint, 'GET', queryParams, {});
     }
 
+static async getOrder(oid ){
 
+    let endpoint = "order/" + oid ;
+    let queryParams = {sid : this.sid};
+
+    console.log("getOrder called with endpoint :", endpoint, " and queryParams: ", queryParams);
+
+    return await this.getRequest(endpoint,queryParams);
+}
 
 }
