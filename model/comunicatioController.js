@@ -24,10 +24,12 @@ export default class CommunicationController {
         }
 
         let httpsResponse = await fetch(url, fetchData);
+
         const status = httpsResponse.status;
 
-        if (status === 200) {
-            return await httpsResponse.text(); 
+        if (status == 200) {
+            let deserializedObject = await httpsResponse.json(); // deserializzazione della risposta JSON
+            return deserializedObject;
         } else {
             const message = await httpsResponse.text();
             let error = new Error("errore message from the server HTTP "+ message);
@@ -39,4 +41,7 @@ export default class CommunicationController {
         console.log("getRequest called");
         return await this.genericRequest(endpoint, 'GET', queryParams, {});
     }
+
+
+
 }
