@@ -48,9 +48,23 @@
 static async getOrder(oid ){
 
     let endpoint = "order/" + oid ;
-    let queryParams = {sid : CommunicationController.sid};
+
+    let queryParams = {sid : this.sid};
 
     console.log("getOrder called with endpoint :", endpoint, " and queryParams: ", queryParams);
+
+    return await this.getRequest(endpoint,queryParams);
+}
+
+
+
+static async getObjectDeliveryDate(oid ){
+
+    let endpoint = "order/" + oid + "/deliveryDate";
+    
+    let queryParams = {sid : this.sid};
+
+    console.log(" getObjectDeliveryDate called with endpoint :", endpoint, " and queryParams: ", queryParams);
 
     return await this.getRequest(endpoint,queryParams);
 }
